@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Todo List
+        link(rel='stylesheet' href='/css/style.css')
+    body
+    header.header
+        nav.header__nav
+            h1.nan__title Todo List
+    section.container_list
+        h1.container__list-title Agrega una Tarea
+        form.container_list_form.form(action='/' method="post")
+            input.form__input.form__input_id(type='number' name='id' value="" readonly)
+            input.form__input.input__tarea(type='text' name='tarea' placeholder='Agrega tu tarea')
+            input.form__input.form__input_submit(type='submit' value='Agregar' name="tipo")
+            input.form__input.form__input_submit(type='submit' value='Reeset' name="tipo")
+    section.content__tareas
+        h2.content__tareas_title Tareas
+        each tarealist in tareasBd
+            article.content__tareas_list
+                form.list__actions.actions(action='/' method="post")
+                    input.form__input.id_tarea(type='number' name='id' value="" readonly)
+                    input.form__input.input__tarea_list(type='text' name='tarea' readonly value=tarealist.tarea)
+                    button.form__input.btn.btn__actions(type='button' value='EDIT' data-id=`${tarealist.id}` name="tipo") Edit
+                    button.form__input.btn.btn__submit(type='submit' value='DELATE' name="tipo") Delate
+    footer.footer
+        h3.footer__title Derechos Reservados @Moises santos
+    script(src='/js/main.js')
