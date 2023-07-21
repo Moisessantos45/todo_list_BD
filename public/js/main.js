@@ -1,10 +1,11 @@
+let form = document.querySelector(".form")
 let tarea = document.querySelector(".input__tarea")
 let btn_agregar = document.querySelector(".form__input_submit")
 let idCont = document.querySelector(".form__input_id")
 let input = document.querySelector(".btn__actions")
 let content_tareas = document.querySelector(".content__tareas")
 let tarea_list = document.querySelectorAll(".input__tarea_list")
-let idTarea=document.querySelectorAll(".id_tarea")
+let idTarea = document.querySelectorAll(".id_tarea")
 console.log("hijos", content_tareas.childElementCount)
 
 tarea.addEventListener("input", () => {
@@ -14,6 +15,13 @@ tarea.addEventListener("input", () => {
         tarea.classList.add("outline-danger")
     } else {
         tarea.classList.remove("outline-danger")
+    }
+})
+
+
+form.addEventListener("submit", () => {
+    if (tarea.value.trim() == "") {
+        document.querySelector(".container_list_mensaje").classList.add("ver")
     }
 })
 

@@ -42,7 +42,7 @@ const agregarTareas = async (req, res) => {
                 console.log(error)
             }
             console.log("guardando")
-        } else if (tipo == "DELATE") {
+        } else if (tipo == "DELETE") {
             console.log("eliminando")
             await Tarea.destroy({
                 where: {
@@ -51,7 +51,7 @@ const agregarTareas = async (req, res) => {
                 }
             })
             res.redirect("/")
-        }else if(tipo=="Reeset"){
+        }else if(tipo=="Restore"){
             await Tarea.sync({force:true})
             res.redirect("/")
         }
